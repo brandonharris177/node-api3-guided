@@ -1,9 +1,12 @@
 const express = require('express'); // importing a CommonJS module
+const morgan = require('morgan');
 
 const hubsRouter = require('./hubs/hubs-router.js');
 
 const server = express();
 
+//global middleware
+server.use(morgan('dev'));
 server.use(express.json());
 
 server.use('/api/hubs', hubsRouter);
